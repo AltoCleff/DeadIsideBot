@@ -3,8 +3,6 @@ package me.altocleff.deadiside.listener.commandListener;
 import jakarta.annotation.Nullable;
 import lombok.RequiredArgsConstructor;
 import me.altocleff.deadiside.command.ICommand;
-import me.altocleff.deadiside.exception.DiceTypeException;
-import me.altocleff.deadiside.exception.MessageBuildException;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
@@ -44,14 +42,14 @@ public class CommandManager {
             if (command != null) {
                 try {
                     command.handle(event, List.of(Arrays.copyOfRange(split, 1, split.length)));
-                } catch (MessageBuildException | DiceTypeException e) {
+                } catch (RuntimeException e) {
                     EmbedBuilder builder = new EmbedBuilder();
                     builder.setTitle("Error");
                     builder.setColor(Color.RED);
                     builder.setDescription(e.getMessage());
 
 
-                    event.getChannel().sendMessage(new MessageCreateBuilder().addEmbeds(builder.build()).build()).queue();
+                    event.getMessage().reply(new MessageCreateBuilder().addEmbeds(builder.build()).build()).queue();
                 }
             }
         }

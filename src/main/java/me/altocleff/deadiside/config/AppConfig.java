@@ -18,7 +18,6 @@ public class AppConfig {
         ClassPathResource resource = new ClassPathResource("dice.json");
         return objectMapper.readValue(resource.getInputStream(), new TypeReference<>() {});
     }
-
     @Bean
     public ObjectMapper objectMapper() {
         return new ObjectMapper();
