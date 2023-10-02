@@ -11,12 +11,10 @@ import me.altocleff.deadiside.util.Utils;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import org.springframework.stereotype.Component;
 
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
-@Component
 @RequiredArgsConstructor
 public class PlayerManager {
 
