@@ -10,7 +10,7 @@
     </parent>
     <groupId>me.altocleff</groupId>
     <artifactId>DeadIside</artifactId>
-    <version>0.2.0-SNAPSHOT</version>
+    <version>0.2.1-SNAPSHOT</version>
     <name>DeadIside</name>
     <description>DeadIside</description>
     <properties>
@@ -93,17 +93,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <resources>
-            <!--If the pro and xml files are placed in the source java package, they also need to be compiled-->
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
     </build>
 
 </project>
